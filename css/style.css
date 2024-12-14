@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-size: 16px;
+}
+.logo {
+    text-align: center;
+    margin: 20px 0 50px 0;
+}
+.logo h4 {
+    font-size: 30px;
+    letter-spacing: 2px;
+    margin: 20px 0 5px 0;
+}
+.logo h4:hover {
+    color: #ce9460;
+}
+.nav li {
+    list-style: none;
+}
+.nav {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.nav > ul {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+.nav > ul > li {
+    position: relative;
+    margin: 0 20px;
+}
+.nav ul li a {
+    color: #333;
+    text-decoration: none;
+}
+.nav ul li a:hover {
+    color: #ce9460;
+}
+.nav ul li ul {
+    display: none;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    background: #f2f2f2;
+    padding: 10px;
+    width: 80px;
+}
+.nav ul li ul li {
+    margin: 5px 0;
+}
+.nav > ul > li:hover ul {
+    display: block;
+}
+.banner {
+    width: 820px;
+    margin: 20px auto;
+}
+.banner img {
+    width: 100%;
+}
+.about {
+    width: 820px;
+    margin: auto;
+}
+.about h3 {
+    color: #ce8460;
+    font-size: 24px;
+}
+.about h3::before {
+    content: ' ';
+    display: inline-block;
+    width: 5px;
+    height: 30px;
+    margin-right: 10px;
+    background: #ce8460;
+}
+.about p {
+    line-height: 1.8;
+    margin: 20px 0;
+    text-indent: 2em;
+}
+.video {
+    margin: 20px 0;
+}
+.footer {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.nav ul li ul {
+    display: none;
+    position: absolute;
+    top: 100%; /* 调整到下方 */
+    left: 0;
+    background: #f2f2f2;
+    padding: 10px;
+    width: 80px;
+    pointer-events: auto; /* 允许鼠标事件 */
+}
+
+/* 主菜单悬停，保持子菜单显示 */
+.nav > ul > li:hover ul,
+.nav > ul > li ul:hover {
+    display: block;
+}
