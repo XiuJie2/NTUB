@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8"/>
+    <title>國立台北商業大學</title>
+    <style>
+        h4 {
+            color: #ce9460;
+        }
+        h3 {
+            color: #ce8460;
+        }
+        .bcqm {
+            display: flex;
+            justify-content: space-around; /* 項目均分填滿整個容器 */
+            background: #f7f7f7; /* 背景色可調 */
+            padding: 10px 0;
+        }
+        .bcqm ul {
+            list-style: none; /* 移除項目符號 */
+            margin: 0;
+            padding: 0;
+            display: flex; /* 將列表項目水平排列 */
+            gap: 20px; /* 項目間的間距 */
+            width: 100%; /* 設置寬度以填滿父容器 */
+            justify-content: space-evenly; /* 項目均勻分布 */
+        }
+        .bcqm ul li {
+            position: relative; /* 為子菜單定位 */
+        }
+        .bcqm ul a {
+            text-decoration: none; /* 移除底線 */
+            color: #333; /* 項目字體顏色 */
+            padding: 5px 10px;
+            transition: color 0.3s; /* 添加滑鼠懸停動畫效果 */
+        }
+        .bcqm ul a li:hover {
+            color: #1888b8; /* 滑鼠懸停時的顏色 */
+        }
+        /* 子選單樣式 */
+        .bcqm ul li ul {
+            display: none; /* 隱藏子菜單 */
+            position: absolute;
+            top: 100%; /* 子選單定位到主選單下方 */
+            left: 0;
+            background: #fff;
+            list-style: none;
+            padding: 10px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .bcqm ul li:hover ul {
+            display: block; /* 滑鼠懸停時顯示子菜單 */
+        }
+        .bcqm ul li ul li {
+            margin: 0;
+            padding: 0;
+        }
+        .bcqm ul li ul a {
+            color: #1888b8;
+            padding: 5px 15px;
+            white-space: nowrap; /* 防止換行 */
+        }
+        .footer {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .logo {
+            text-align: center;
+            margin: 20px 0 50px 0;
+        }
+    </style>
+</head>

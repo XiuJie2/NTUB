@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>1131216_3.html</title>
+   <style>
+      @keyframes my-animation{
+         0%{left:0px; top:0px;}
+         25%{left:0px; top:250px;}
+         50%{left:250px; top:250px;}
+         75%{left:250px; top:0px;}
+         100%{left:0px; top:0px;}
+      }
+      @keyframes mine-animation{
+         0%{left:250px; top:550px;}
+         25%{left:0px; top:550px;}
+         50%{left:0px; top:300px;}
+         75%{left:250px; top:300px;}
+         100%{left:250px; top:550px;}
+      }
+      body{margin:0px;}
+      img#ex1 {
+         width:50px;
+         position:absolute;
+         animation-name: my-animation;
+         animation-duration: 5s;
+         animation-timing-function: linear;
+         animation-iteration-count: infinite;
+         animation-direction: alternate-reverse;
+      }
+
+      img#ex2 {
+         width:50px;
+         position:absolute;
+         animation-name: mine-animation;
+         animation-duration: 5s;
+         animation-timing-function: linear;
+         animation-iteration-count: infinite;
+         animation-direction: alternate;
+      }
+      img:hover#ex1{animation-play-state: paused;}
+      img:hover#ex2{animation-play-state: paused;}
+   </style>
+</head>
+<body>
+   <div>
+      <img id="ex1" src="sselogo.jpg">
+      <img id="ex2" src="sselogo.jpg">
+   </div>
+</body>
+</html>
