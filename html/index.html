@@ -100,12 +100,7 @@
         }
         
           /* 活動卡片版型樣式 */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-        }
+       
 
         .event-board {
             max-width: 1200px;
@@ -259,6 +254,91 @@
             cursor: not-allowed;
         }
 
+        .content-section {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .map-section,
+        .song-section {
+            flex: 1;
+        }
+
+        .map-section iframe,
+        .song-section iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-section h3,
+        .song-section h3 {
+            text-align: center;
+            color: #5a67d8;
+            margin-bottom: 15px;
+        }
+
+        h6 {
+            text-align: center;
+            color: #555;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        .footer {
+            background-color: #800080;
+            /* 紫色背景 */
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 40px;
+            flex-wrap: wrap;
+            border-radius: 10px;
+        }
+        
+
+        .links-section h3 {
+            font-size: 18px;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .links-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            /* 兩列佈局 */
+            gap: 120px;
+            /* 列間距 */
+        }
+
+        .links-column {
+            flex: 1;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            line-height: 1.8;
+        }
+
+        .links-column li a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .links-column li a:hover {
+            color: #ffd700; /* 金色懸停效果 */
+        }
+
 
 
 
@@ -329,7 +409,7 @@
             transition: all 0.3s ease-in-out; /* 添加平滑效果 */
             color: #1888b8; /* 滑鼠懸停時的文字顏色 */
         }
-        .footer {
+        .footer2 {
             background: #333;
             color: #fff;
             padding: 0px 0;
@@ -693,7 +773,7 @@
     
 
 
-    
+
     <div>
         <h3>北商台北校區</h3>
         <p>
@@ -716,49 +796,82 @@
     </div>
 
 
-    <div>
+    
         <div class="xcxp">
             <h1>北商校訓</h1>
             <p>公─光明正直，大公無私的態度。</p>
             <p>能─手腦並用，勤勞服務的能力。</p>
             <p>弘─高瞻遠矚，恢廓進取的抱負。</p>
-            <p>毅─堅忍有恆，忠誠救國的毅力。</p>
-            <hr>
-        </div>
-
-        <h3>北商地圖</h3>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.754630222151!2d121.52289487537678!3d25.04239977781091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a970a11a84ad%3A0x58e05f2528812097!2z5ZyL56uL6Ie65YyX5ZWG5qWt5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1730685843718!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-        <!-- 添加id="about"作为锚点 -->
-        <hr>
-        <div id="about">
-            <h3>關於北商</h3>
-            <ol>
-                <dt><img src="Image/mk.png" width="30">本校創立於日治時期大正6年（1917年），原名「臺灣總督府立商業學校」。</dt>
-                <dt><img src="Image/mk.png" width="30">大正10年（1921年），由臺北州接辦，改稱「臺北州立商業學校」。</dt>
-                <dt><img src="Image/mk.png" width="30">大正11年（1922年），改稱「州立臺北商業學校」，並增設夜間講習所，旋擴大為「州立臺北第二商業學校」。</dt>
-                <dt><img src="Image/mk.png" width="30">1945年，第二次世界大戰結束，國民政府接收上述兩校，定名為「臺灣省立臺北第一商業學校」、「臺灣省立臺北第二商業學校」，仍分日、夜間上課，並以每年12月24日為校慶日。</dt>
-                <dt><img src="Image/mk.png" width="30">民國35年（1946年），兩校合併定名為「臺灣省立臺北商業學校」，簡稱「北商」。</dt>
-                <dt><img src="Image/mk.png" width="30">本校103年（2014年）8月1日，奉准改名為「國立臺北商業大學」。</dt>
-            </ol>
+            <p>毅─堅忍有恆，忠誠救國的毅力。</p>    
         </div>
 
         <hr>
+
+        <div class="content-section">
+            <!-- 地圖區塊 -->
+            <div class="map-section">
+                <h3>北商地圖</h3>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.754630222151!2d121.52289487537678!3d25.04239977781091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a970a11a84ad%3A0x58e05f2528812097!2z5ZyL56uL6Ie65YyX5ZWG5qWt5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1730685843718!5m2!1szh-TW!2stw"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
         
-        <div>
-            <h3>北商校歌</h3>
-            <div>
-                <iframe width="800" height="500" src="https://www.youtube.com/embed/feEprpg5EE4" title="國立臺北商業大學｜校歌" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <h6 style="margin: 0;">⚠️此視頻為國立台北商業大學所有，請勿轉載</h6>
+            <!-- 校歌區塊 -->
+            <div class="song-section">
+                <h3>北商校歌</h3>
+                <iframe src="https://www.youtube.com/embed/feEprpg5EE4" title="國立臺北商業大學｜校歌" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <h6>⚠️此視頻為國立台北商業大學所有，請勿轉載</h6>
+            </div>
+        </div>
+    
+
+
+
+    <div id="about">
+        <h3>關於北商</h3>
+        <ol>
+            <dt><img src="Image/mk.png" width="30">本校創立於日治時期大正6年（1917年），原名「臺灣總督府立商業學校」。</dt>
+            <dt><img src="Image/mk.png" width="30">大正10年（1921年），由臺北州接辦，改稱「臺北州立商業學校」。</dt>
+            <dt><img src="Image/mk.png" width="30">大正11年（1922年），改稱「州立臺北商業學校」，並增設夜間講習所，旋擴大為「州立臺北第二商業學校」。</dt>
+            <dt><img src="Image/mk.png"
+                    width="30">1945年，第二次世界大戰結束，國民政府接收上述兩校，定名為「臺灣省立臺北第一商業學校」、「臺灣省立臺北第二商業學校」，仍分日、夜間上課，並以每年12月24日為校慶日。</dt>
+            <dt><img src="Image/mk.png" width="30">民國35年（1946年），兩校合併定名為「臺灣省立臺北商業學校」，簡稱「北商」。</dt>
+            <dt><img src="Image/mk.png" width="30">本校103年（2014年）8月1日，奉准改名為「國立臺北商業大學」。</dt>
+        </ol>
+    </div>
+    <div class ="footer">
+        <div class="links-section">
+            <h3>校園連結<br><span style="font-size: 12px; color: #ccc;">proclamation</span></h3>
+            <div class="links-container">
+                <ul class="links-column">
+                    <li><a href="#">認識北商</a></li>
+                    <li><a href="#">招生資訊網</a></li>
+                    <li><a href="#">應屆畢業生流向調查</a></li>
+                    <li><a href="#">捐贈北商</a></li>
+                    <li><a href="#">校務暨財務資訊</a></li>
+                    <li><a href="#">宣導文件夾</a></li>
+                </ul>
+                <ul class="links-column">
+                    <li><a href="#">北商學會</a></li>
+                    <li><a href="#">緊急聯絡電話</a></li>
+                    <li><a href="#">活動報名</a></li>
+                    <li><a href="#">北商識同卡</a></li>
+                    <li><a href="#">實習就業平台</a></li>
+                    <li><a href="#">性別平等委員會</a></li>
+                </ul>
             </div>
         </div>
     </div>
 
-    
-    <div class="footer">
-        
-        <p>&copy; 2024————100025台北市中正區濟南路一段321號————(02)33222777</p>
 
+    
+
+    <div class="footer2">
+        
+        <p>&copy; 2024————100025台北市中正區濟南路一段321號————📞(02)33222777</p>
+        <p>&copy; 2024————100025台北市中正區濟南路一段321號————📞(02)33222777</p>
     </div>
 </body>
 </html>
