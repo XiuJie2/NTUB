@@ -7,6 +7,262 @@
     <link rel="icon" sizes="512x512" type="image/png" href="Image/ntubl.png">
 
     <style>
+/* 子選單隱藏，右側出現 */
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: translateX(10px);
+            opacity: 0;
+        }
+
+        /* 父選單懸停時顯示子選單 */
+        .menu-item a:hover + .submenu,
+        .submenu:hover {
+            display: block;
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        /* 父選單的相對定位確保子選單的絕對定位有效 */
+        .menu-item {
+            position: relative;
+        }
+
+        /* 子選單文字樣式 */
+        .submenu li a {
+            white-space: nowrap;
+            padding: 5px 10px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .submenu li a:hover {
+            background-color: #f1f1f1;
+            color: #1888b8;
+        }
+
+
+        /* 圖版 */
+         /* CSS樣式 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .carousel {
+            position: relative;
+            max-width: 1000px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-images img {
+            max-width: 100%;
+            display: block;
+        }
+
+        
+        .carousel-indicators {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 5px;
+        }
+
+        .carousel-indicators button {
+            width: 12px;
+            height: 12px;
+            background-color: #bbb;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .carousel-indicators button.active {
+            background-color: #888;
+        }
+        
+          /* 活動卡片版型樣式 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .event-board {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #5a67d8;
+            margin-bottom: 20px;
+        }
+
+        /* 卡片樣式 */
+        .event-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .event-info {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .event-info h3 {
+            margin: 0 0 10px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .event-info p {
+            margin: 5px 0;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .event-card .event-button {
+            padding: 10px 15px;
+            background-color: #5a67d8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .event-card .event-button:hover {
+            background-color: #434fbf;
+        }
+
+        .load-more {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #5a67d8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .load-more:hover {
+            background-color: #434fbf;
+        }
+
+        .load-more:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* 新聞網格佈局 */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .news-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .news-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        .news-info h3 {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.4;
+        }
+
+        .news-info p {
+            margin: 5px 0 0;
+            font-size: 12px;
+            color: #ddd;
+        }
+
+        /* 分頁樣式 */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination button {
+            margin: 0 5px;
+            padding: 10px 15px;
+            background-color: #5a67d8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .pagination button:hover {
+            background-color: #434fbf;
+        }
+
+        .pagination button.disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+
+
+
+
         h4 {
             color: #ce9460;
             margin: 10px 0; /* 增加標題的上下間距 */
@@ -102,29 +358,51 @@
 </head>
 
 <body>
-    <div class="logo">
-        <img src="Image/ntublogo.png" alt="國立台北商業大學 logo" width="650">
-        <h2>國立台北商業大學</h2>
-        <h4>National Taipei University of Business</h4>
-        <hr>
-    </div>
+
 
     <div class="bcqm">
         <ul>
-            <li><a href="#">教學單位</a>
-                <ul>
+            <li class="menu-item"><a href="#">教學單位</a>
+                <ul class="submenu">
                     <h4>〔台北校區〕</h4>
-                    <li><a href="stars.html">管理學院</a></li>
-                    <li><a href="wzxy.html">企業管理系</a></li>
-                    <li><a href="zixp.html">資訊管理系</a></li>
+                    <li  class="menu-item"><a href="stars.html">管理學院</a>
+                        <ul class="submenu">
+                            <li>資訊與決策科學研究所</li>
+                            <li>企業管理系</li>
+                            <li>資訊管理系</li>
+                        </ul>
+                    </li>
+                    <li  class="menu-item"><a href="wzxy.html">財經學院</a>
+                        <ul class="submenu">
+                            <li>財經學院博士班</li>
+                            <li>會計資訊系</li>
+                            <li>會計與資料科學科</li>
+                            <li>財務金融系</li>
+                            <li>財政稅務系</li>
+                        </ul>
+                    </li>
+                    <li  class="menu-item"><a href="zixp.html">國際行銷學院</a>
+                        <ul class="submenu">
+                            <li>貿易實務法律暨談判碩士學位學程</li>
+                            <li>國際商務系</li>
+                            <li>應用外語系</li>
+                        </ul>
+                    </li>
                     <hr>
                     <h4>〔桃園校區〕</h4>
-                    <li><a href="wzxy.html">創新設計與經營學院</a></li>
-                    <li><a href="wzxy.html">創意設計與經營研究所</a></li>
-                    <li><a href="wzxy.html">數位多媒體設計系</a></li>
-                    <li><a href="wzxy.html">商業設計管理系</a></li>
+                    <li  class="menu-item"><a href="wzxy.html">創新設計與經營學院</a>
+                        <ul class="submenu">
+                            <li>創意設計與經營研究所</li>
+                            <li>商業設計管理系</li>
+                            <li>創意科技與產品設計系</li>
+                            <li>數位多媒體設計系</li>
+                        </ul>
+                    </li>
+                    
                 </ul>
             </li>
+
+
             <li><a href="#">行政單位</a>
                 <ul>
                     <h4>〔台北校區〕</h4>
@@ -148,20 +426,22 @@
                     
                 </ul>
             </li>
+
+
             <li><a href="#">附設學校</a>
                 <ul>
                     <h4>〔台北校區〕</h4>
-                    <li><a href="stars.html">管理學院</a></li>
-                    <li><a href="wzxy.html">企業管理系</a></li>
-                    <li><a href="zixp.html">資訊管理系</a></li>
+                    <li><a href="stars.html">空中進修學院</a></li>
+                    <li><a href="wzxy.html">推廣教育</a></li>
+                    <li><a href="zixp.html">退除役官兵二年制</a></li>
                     <hr>
                     <h4>〔桃園校區〕</h4>
-                    <li><a href="wzxy.html">創新設計與經營學院</a></li>
-                    <li><a href="wzxy.html">創意設計與經營研究所</a></li>
-                    <li><a href="wzxy.html">數位多媒體設計系</a></li>
-                    <li><a href="wzxy.html">商業設計管理系</a></li>
+                    <li><a href="wzxy.html">空中進修學院</a></li>
+                    <li><a href="wzxy.html">推廣教育</a></li>
                 </ul>
             </li>
+
+
             <li><a href="#">深耕計劃</a>
                 <ul>
                     <h4>〔台北校區〕</h4>
@@ -173,11 +453,247 @@
                 </ul>
             </li>
             <li><a href="#about">關於北商</a></li>
-            <li><a href="login.html">註冊</a></li>
             <li><a href="login.html">登入</a></li>
         </ul>
     </div>
 
+    <div class="logo">
+        <h2>國立台北商業大學</h2>
+        <h4>National Taipei University of Business</h4>
+        <img src="Image/ntublogo.png" alt="國立台北商業大學 logo" width="450">
+        
+        <hr>
+    </div>
+
+
+    <div class="carousel">
+        <div class="carousel-images">
+            <img src="Image/image1.jpg" alt="Slide 1">
+            <img src="Image/image2.png" alt="Slide 2">
+            <img src="Image/image3.jpg" alt="Slide 3">
+        </div>
+        <div class="carousel-indicators">
+            <button data-slide="0" class="active"></button>
+            <button data-slide="1"></button>
+            <button data-slide="2"></button>
+        </div>
+    </div>
+    
+    <script>
+        // JavaScript功能
+        const images = document.querySelector('.carousel-images');
+        const indicators = document.querySelectorAll('.carousel-indicators button');
+        let currentIndex1 = 0;
+
+        function showSlide(index) {
+            const slideWidth = images.children[0].clientWidth;
+            images.style.transform = `translateX(-${index * slideWidth}px)`;
+
+            indicators.forEach((btn, i) => {
+                btn.classList.toggle('active', i === index);
+            });
+
+            currentIndex1 = index;
+        }
+
+        indicators.forEach((btn, index) => {
+            btn.addEventListener('click', () => showSlide(index));
+        });
+
+        // 自動播放功能
+        setInterval(() => {
+            const nextIndex = (currentIndex1 + 1) % images.children.length;
+            showSlide(nextIndex);
+        }, 5000);
+    </script>
+
+
+
+  <div class="event-board">
+    <h2>活動公告</h2>
+    <div id="event-list">
+        <!-- 動態生成活動內容 -->
+    </div>
+    <button id="load-more-btn" class="load-more">顯示更多活動</button>
+</div>
+
+<script>
+    // 活動數據
+    const events = [
+        {
+            title: "改變過去的魔法：如何面對困境創造職涯意義",
+            time: "2024年11月29日 12:00 - 14:00",
+            location: "行政大樓7樓",
+            details: "這是一場幫助您探索自我成長的講座，適合所有希望突破現狀的人士參加。"
+        },
+        {
+            title: "校園創新科技展",
+            time: "2024年12月5日 10:00 - 16:00",
+            location: "北商大操場",
+            details: "展示最新的校園科技成果，包括人工智能、物聯網等領域的創新應用。"
+        },
+        {
+            title: "國際商業高峰論壇",
+            time: "2024年12月10日 09:00 - 17:00",
+            location: "國際會議中心2樓",
+            details: "匯集國內外商業領袖，共同探討未來商業趨勢與機遇。"
+        },
+        {
+            title: "新生迎新大會",
+            time: "2024年8月25日 10:00 - 12:00",
+            location: "北商大禮堂",
+            details: "歡迎全體新生參加迎新大會，了解校園生活和重要資訊。"
+        },
+        {
+            title: "校園清潔日",
+            time: "2024年9月15日 08:00 - 12:00",
+            location: "全校各地點",
+            details: "一起參加校園清潔日，營造乾淨舒適的學習環境。"
+        }
+    ];
+
+
+
+
+    // 每次顯示的活動數量
+    const eventsPerLoad = 3;
+    let currentIndex2 = 0;
+
+    // DOM 元素
+    const eventList = document.getElementById("event-list");
+    const loadMoreBtn = document.getElementById("load-more-btn");
+
+    // 渲染活動
+    function renderEvents() {
+        // 計算需要顯示的活動數量
+        const nextIndex = currentIndex2 + eventsPerLoad;
+        const currentEvents = events.slice(currentIndex2, nextIndex);
+
+        // 動態生成活動內容
+        currentEvents.forEach(event => {
+            const eventCard = document.createElement("div");
+            eventCard.className = "event-card";
+            eventCard.innerHTML = `
+                    <div class="event-info">
+                        <h3>${event.title}</h3>
+                        <p><strong>時間：</strong>${event.time}</p>
+                        <p><strong>地點：</strong>${event.location}</p>
+                    </div>
+                    <button class="event-button">了解更多</button>
+                `;
+            eventList.appendChild(eventCard);
+
+            // 按鈕事件
+            const button = eventCard.querySelector(".event-button");
+            button.addEventListener("click", () => {
+                alert(`詳細內容：\n${event.details}`);
+            });
+        });
+
+        // 更新當前索引
+        currentIndex2 = nextIndex;
+
+        // 如果所有活動已顯示，禁用「顯示更多活動」按鈕
+        if (currentIndex2 >= events.length) {
+            loadMoreBtn.disabled = true;
+            loadMoreBtn.textContent = "沒有更多活動了";
+        }
+    }
+
+    // 按鈕事件
+    loadMoreBtn.addEventListener("click", renderEvents);
+
+    // 初次渲染
+    renderEvents();
+</script>
+
+
+
+
+    <div class="news-container">
+        <h2>新聞中心 NTUBNEWS</h2>
+        <div id="news-grid" class="news-grid">
+            <!-- 新聞項目將通過 JavaScript 動態生成 -->
+        </div>
+        <div class="pagination">
+            <button id="prev-btn" class="disabled">上一頁</button>
+            <button id="next-btn">下一頁</button>
+        </div>
+    </div>
+    
+    <script>
+        // 新聞數據
+        const newsData = [
+            { title: "北商大107周年校慶 桃園校區熱鬧登場", date: "2024-12-17", image: "news1.jpg" },
+            { title: "2024全國社群大數據分析校園創新競賽", date: "2024-12-10", image: "news2.jpg" },
+            { title: "百年各校 北商大 科大商學院第一品牌", date: "2024-11-25", image: "news3.jpg" },
+            { title: "繼橫期海期模擬賽 北商大獲勝", date: "2024-11-22", image: "news4.jpg" },
+            { title: "北商大財稅系 獲租稅競賽全國冠軍", date: "2024-11-19", image: "news5.jpg" },
+            { title: "北商大創新設計成果 師生共創輝煌", date: "2024-11-07", image: "news6.jpg" },
+            { title: "新生研討會 開啟大學新旅程", date: "2024-10-15", image: "news7.jpg" },
+            { title: "國際學術合作簽約儀式", date: "2024-09-30", image: "news8.jpg" },
+        ];
+
+        // 每頁顯示的新聞數量
+        const newsPerPage = 3;
+        let currentPage = 1;
+
+        // DOM 元素
+        const newsGrid = document.getElementById("news-grid");
+        const prevBtn = document.getElementById("prev-btn");
+        const nextBtn = document.getElementById("next-btn");
+
+        // 渲染新聞項目
+        function renderNews() {
+            // 清空現有內容
+            newsGrid.innerHTML = "";
+
+            // 計算當前頁面的新聞範圍
+            const startIndex = (currentPage - 1) * newsPerPage;
+            const endIndex = startIndex + newsPerPage;
+            const currentNews = newsData.slice(startIndex, endIndex);
+
+            // 動態生成新聞項目
+            currentNews.forEach(news => {
+                const newsItem = document.createElement("div");
+                newsItem.className = "news-item";
+                newsItem.innerHTML = `
+                        <img src="${news.image}" alt="${news.title}">
+                        <div class="news-info">
+                            <h3>${news.title}</h3>
+                            <p>${news.date}</p>
+                        </div>
+                    `;
+                newsGrid.appendChild(newsItem);
+            });
+
+            // 更新按鈕狀態
+            prevBtn.classList.toggle("disabled", currentPage === 1);
+            nextBtn.classList.toggle("disabled", currentPage === Math.ceil(newsData.length / newsPerPage));
+        }
+
+        // 分頁按鈕事件
+        prevBtn.addEventListener("click", () => {
+            if (currentPage > 1) {
+                currentPage--;
+                renderNews();
+            }
+        });
+
+        nextBtn.addEventListener("click", () => {
+            if (currentPage < Math.ceil(newsData.length / newsPerPage)) {
+                currentPage++;
+                renderNews();
+            }
+        });
+
+        // 初次渲染
+        renderNews();
+    </script>
+    
+
+
+    
     <div>
         <h3>北商台北校區</h3>
         <p>
@@ -196,9 +712,9 @@
             <b><font size="2">北商學舍</font></b>
             <a href="https://dorm.ttu.edu.tw/"><img src="Image/xtue.jpg" width="200"></a>
         </p>
-        <hr>
-        
+        <hr>       
     </div>
+
 
     <div>
         <div class="xcxp">
@@ -226,7 +742,9 @@
                 <dt><img src="Image/mk.png" width="30">本校103年（2014年）8月1日，奉准改名為「國立臺北商業大學」。</dt>
             </ol>
         </div>
+
         <hr>
+        
         <div>
             <h3>北商校歌</h3>
             <div>
@@ -236,6 +754,7 @@
         </div>
     </div>
 
+    
     <div class="footer">
         
         <p>&copy; 2024————100025台北市中正區濟南路一段321號————(02)33222777</p>
