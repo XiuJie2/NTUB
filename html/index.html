@@ -13,7 +13,7 @@
             position: absolute;
             top: 0;
             left: 100%;
-            background-color: #fff;
+            background-color: #710d72;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             z-index: 1000;
             transition: opacity 0.3s ease, transform 0.3s ease;
@@ -263,7 +263,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             display: flex;
             gap: 20px;
-            align-items: center;
+            align-items: flex-start;
         }
 
         .map-section,
@@ -274,7 +274,7 @@
         .map-section iframe,
         .song-section iframe {
             width: 100%;
-            height: 300px;
+            height: 400px;
             border: 0;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -295,17 +295,86 @@
         }
 
         .footer {
-            background-color: #800080;
-            /* 紫色背景 */
+            background-color: #800080; /* 紫色背景 */
             color: white;
             display: flex;
             justify-content: space-between;
             padding: 20px 40px;
-            flex-wrap: wrap;
+            flex-wrap: wrap; /* 在小屏幕上换行 */
             border-radius: 10px;
         }
         
+        .contact-section {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex: 1;
+            min-width: 300px;
+        }
 
+        .contact-section a {
+            text-decoration: none; /* 去除下划线 */
+            color: white; /* 默认文字颜色 */
+            transition: color 0.3s ease-in-out; /* 动画过渡效果 */
+            
+        }
+        
+        .contact-section a:hover {
+            color: #d8b0ff; /* 鼠标悬停时文字变为浅紫色 */
+        }
+        
+        .bt_r {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        
+        .bt_text1, .bt_text2 {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end; /* 右对齐文字 */
+            text-align: right;
+        }
+
+        .bt_text1 p {
+            margin-top: 0; /* 去除上边距 */
+            margin-bottom: 0; /* 去除下边距 */
+    
+        }
+        .bt_text1 a {
+            margin-top: 0; /* 去除上边距 */
+            margin-bottom: 0; /* 去除下边距 */
+            font-size: 10px; /* 调整链接文字大小 */
+        }
+        
+        .bt_text2 {
+            border-left: 4px solid white; /* 添加左边的白色粗线 */
+            padding-left: 20px; /* 文字与线之间的间距 */
+        }
+        
+        .bt_text2 img {
+            float: right; /* 图片靠右 */
+            margin-right: 0px; /* 设置左侧的间距 */
+            max-width: 200px; /* 确保图片大小 */
+            height: auto; /* 保持图片比例 */
+        }
+
+        .bt_text2 h1 {
+            font-family: 'Arial', sans-serif;
+            font-size: 36px;
+            text-align: center; /* 水平居中 */
+        }
+        
+        .bt_text2 h1 .line {
+            display: inline-block;
+            width: 100%; /* 确保每行宽度相同 */
+            min-width: 150px; /* 可以设置最小宽度，避免宽度过小 */
+            text-align: center; /* 对齐文字 */
+        }
+        
+        
+        
         .links-section h3 {
             font-size: 18px;
             color: white;
@@ -316,7 +385,7 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             /* 兩列佈局 */
-            gap: 120px;
+            gap: 30px;
             /* 列間距 */
         }
 
@@ -331,7 +400,7 @@
         .links-column li a {
             text-decoration: none;
             color: white;
-            font-size: 14px;
+            font-size: 15px;
             transition: color 0.3s;
         }
 
@@ -341,7 +410,10 @@
 
 
 
-
+        .hightlight {
+            font-size: 20px;
+            font-weight: bold;
+        }
 
         h4 {
             color: #ce9460;
@@ -353,7 +425,7 @@
         .bcqm {
             display: flex;
             justify-content: space-around; /* 項目均分填滿整個容器 */
-            background: #f7f7f7; /* 背景色可調 */
+            background: #9113a1; /* 背景色可調 */
             padding: 10px 0;
         }
         .bcqm ul {
@@ -383,7 +455,7 @@
             position: absolute;
             top: 100%; /* 子選單定位到主選單下方 */
             left: 0;
-            background: #fff;
+            background: #ffffff;
             list-style: none;
             padding: 10px 15px; /* 子選單內邊距 */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 添加陰影 */
@@ -419,9 +491,6 @@
             text-align: center;
             margin: 20px 0 50px 0;
         }
-        .xcxp {
-            text-align: center;
-        }
 
         .bcqm ul li ul a {
             font-size: 15px; /* 子菜单調整字體大小，例如 18px */
@@ -434,6 +503,54 @@
             font-size: 40px; /* 子菜单調整字體大小，例如 18px */
             margin-left: -80px; /* 可以根據需要調整這個值 */
         }
+
+        .xcxp {
+            max-width: 600px;
+            margin: 20px auto;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .xcxp-title {
+            font-size: 32px;
+            color: #800080; /* 紫色标题 */
+            margin-bottom: 20px;
+        }
+        
+        .xcxp-item {
+            border-radius: 10px; /* 圆角 */
+            padding: 20px;
+            margin: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+            font-size: 18px;
+            font-weight: bold;
+            text-align: left; /* 左对齐文字 */
+            align-items: center; /* 垂直居中 */
+            justify-content: center; /* 水平居中 */
+            text-align: center; /* 多行文字居中对齐 */
+        }
+        
+        .xcxp-item p {
+            margin: 0; /* 移除段落间距 */
+        }
+        
+        .xcxp-item strong {
+            font-size: 22px;
+            color: #800000; /* 强调字体颜色 */
+        }
+
+        .dash {
+            color: #800080; /* 紫色 */
+            font-weight: bold;
+            margin: 0 5px; /* 调整左右间距 */
+        }
+        
+        h3 {
+            margin-left: 20px;
+        }
+        
+        
+        
     </style>
 </head>
 
@@ -442,7 +559,7 @@
 
     <div class="bcqm">
         <ul>
-            <li class="menu-item"><a href="#">教學單位</a>
+            <li class="menu-item"><a href="#" class="hightlight">教學單位</a>
                 <ul class="submenu">
                     <h4>〔台北校區〕</h4>
                     <li  class="menu-item"><a href="stars.html">管理學院</a>
@@ -483,7 +600,7 @@
             </li>
 
 
-            <li><a href="#">行政單位</a>
+            <li><a href="#" class="hightlight">行政單位</a>
                 <ul>
                     <h4>〔台北校區〕</h4>
                     <li><a href="xcvf.html">校長室</a></li>
@@ -508,7 +625,7 @@
             </li>
 
 
-            <li><a href="#">附設學校</a>
+            <li><a href="#" class="hightlight">附設學校</a>
                 <ul>
                     <h4>〔台北校區〕</h4>
                     <li><a href="stars.html">空中進修學院</a></li>
@@ -522,7 +639,7 @@
             </li>
 
 
-            <li><a href="#">深耕計劃</a>
+            <li><a href="#" class="hightlight">深耕計劃</a>
                 <ul>
                     <h4>〔台北校區〕</h4>
                     <li><a href="stars.html">回北商大</a></li>
@@ -532,16 +649,15 @@
                     <li><a href="zixp.html">募款專區</a></li>
                 </ul>
             </li>
-            <li><a href="#about">關於北商</a></li>
-            <li><a href="login.html">登入</a></li>
+            <li><a href="#about" class="hightlight">關於北商</a></li>
+            <li><a href="login.html" class="hightlight">登入</a></li>
         </ul>
     </div>
 
     <div class="logo">
+        <img src="Image/ntublogo.png" alt="國立台北商業大學 logo" width="700">
         <h2>國立台北商業大學</h2>
         <h4>National Taipei University of Business</h4>
-        <img src="Image/ntublogo.png" alt="國立台北商業大學 logo" width="450">
-        
         <hr>
     </div>
 
@@ -775,7 +891,7 @@
 
 
     <div>
-        <h3>北商台北校區</h3>
+        <h3>《北商台北校區》</h3>
         <p>
             <b><font size="2">北商校園</font></b>
             <a href="https://www.nps.gov/yell"><img src="Image/xy.jpg" width="200"></a>
@@ -784,7 +900,7 @@
             <a href="https://www.siliconstone.org"><img src="Image/tuuugr.jpg" width="200"></a>
         </p>
         <hr>
-        <h3>北商桃園校區</h3>
+        <h3>《北商桃園校區》</h3>
         <p>
             <b><font size="2">北商校園</font></b>
             <a href="https://www.ntub.edu.tw/p/422-1000-1032.php?Lang=zh-tw"><img src="Image/tkyr.jpg" width="200"></a>
@@ -797,20 +913,30 @@
 
 
     
-        <div class="xcxp">
-            <h1>北商校訓</h1>
-            <p>公─光明正直，大公無私的態度。</p>
-            <p>能─手腦並用，勤勞服務的能力。</p>
-            <p>弘─高瞻遠矚，恢廓進取的抱負。</p>
-            <p>毅─堅忍有恆，忠誠救國的毅力。</p>    
+    <div class="xcxp">
+        <h1 class="xcxp-title">北商校訓</h1>
+        <div class="xcxp-item" style="background-color: #f4cccc;">
+            <p><strong>公</strong> <span class="dash">———</span> 光明正直，大公無私的態度。</p>
         </div>
+        <div class="xcxp-item" style="background-color: #d9ead3;">
+            <p><strong>能</strong> <span class="dash">———</span> 手腦並用，勤勞服務的能力。</p>
+        </div>
+        <div class="xcxp-item" style="background-color: #cfe2f3;">
+            <p><strong>弘</strong> <span class="dash">———</span> 高瞻遠矚，恢廓進取的抱負。</p>
+        </div>
+        <div class="xcxp-item" style="background-color: #fff2cc;">
+            <p><strong>毅</strong> <span class="dash">———</span> 堅忍有恆，忠誠救國的毅力。</p>
+        </div>  
+    </div>
+    
+    
 
         <hr>
 
         <div class="content-section">
             <!-- 地圖區塊 -->
             <div class="map-section">
-                <h3>北商地圖</h3>
+                <h3>《北商地圖》</h3>
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.754630222151!2d121.52289487537678!3d25.04239977781091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a970a11a84ad%3A0x58e05f2528812097!2z5ZyL56uL6Ie65YyX5ZWG5qWt5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1730685843718!5m2!1szh-TW!2stw"
                     allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -818,7 +944,7 @@
         
             <!-- 校歌區塊 -->
             <div class="song-section">
-                <h3>北商校歌</h3>
+                <h3>《北商校歌》</h3>
                 <iframe src="https://www.youtube.com/embed/feEprpg5EE4" title="國立臺北商業大學｜校歌" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -830,7 +956,7 @@
 
 
     <div id="about">
-        <h3>關於北商</h3>
+        <h3>《關於北商》</h3>
         <ol>
             <dt><img src="Image/mk.png" width="30">本校創立於日治時期大正6年（1917年），原名「臺灣總督府立商業學校」。</dt>
             <dt><img src="Image/mk.png" width="30">大正10年（1921年），由臺北州接辦，改稱「臺北州立商業學校」。</dt>
@@ -841,7 +967,7 @@
             <dt><img src="Image/mk.png" width="30">本校103年（2014年）8月1日，奉准改名為「國立臺北商業大學」。</dt>
         </ol>
     </div>
-    <div class ="footer">
+    <div class="footer">
         <div class="links-section">
             <h3>校園連結<br><span style="font-size: 12px; color: #ccc;">proclamation</span></h3>
             <div class="links-container">
@@ -863,15 +989,23 @@
                 </ul>
             </div>
         </div>
+        <div class="contact-section">
+            <div class="bt_r">
+                <div class="bt_text1">
+                    <h1>
+                        <span class="line">北商大</span><br>
+                        <span class="line">NTUB</span>
+                    </h1>                    
+                    <div><p>(02)33222777</p></div>
+                    <a href="/p/404-1000-66809.php?Lang=zh-tw#Location_TPC" title="台北校區交通">100025台北市中正區濟南路一段321號</a><br />
+                    <div><p>(03)4506333</p></div>
+                    <a href="/p/404-1000-66809.php?Lang=zh-tw#Location_TYC" title="桃園校區交通">324022桃園市平鎮區福龍路一段100號</a></div>
+        <div class="bt_text2">
+            <img src="Image/ntubpet.png" width="300" alt="校園圖片">
+        </div>
     </div>
-
-
     
-
-    <div class="footer2">
-        
-        <p>&copy; 2024————100025台北市中正區濟南路一段321號————📞(02)33222777</p>
-        <p>&copy; 2024————100025台北市中正區濟南路一段321號————📞(02)33222777</p>
-    </div>
 </body>
 </html>
+
+
