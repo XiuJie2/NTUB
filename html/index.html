@@ -7,45 +7,7 @@
     <link rel="icon" sizes="512x512" type="image/png" href="Image/ntubl.png">
 
     <style>
-/* 子選單隱藏，右側出現 */
-        .submenu {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 100%;
-            background-color: #710d72;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            transform: translateX(10px);
-            opacity: 0;
-        }
-
-        /* 父選單懸停時顯示子選單 */
-        .menu-item a:hover + .submenu,
-        .submenu:hover {
-            display: block;
-            transform: translateX(0);
-            opacity: 1;
-        }
-
-        /* 父選單的相對定位確保子選單的絕對定位有效 */
-        .menu-item {
-            position: relative;
-        }
-
-        /* 子選單文字樣式 */
-        .submenu li a {
-            white-space: nowrap;
-            padding: 5px 10px;
-            text-decoration: none;
-            color: #333;
-        }
-
-        .submenu li a:hover {
-            background-color: #f1f1f1;
-            color: #1888b8;
-        }
+        
 
 
         /* 圖版 */
@@ -456,78 +418,174 @@
 
 
 
-
-        .hightlight {
-            font-size: 20px;
-            font-weight: bold;
+        /* 菜单样式 */
+        .bcqm {
+            display: flex;
+            justify-content: space-around;
+            background: #9113a1;
+            padding: 10px 0;
         }
 
+        .bcqm ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            justify-content: space-evenly;
+        }
+
+        .bcqm ul li {
+            position: relative;
+        }
+
+        .bcqm ul a  {
+            text-decoration: none;
+            color: #170b73;
+            padding: 10px 15px;
+            font-weight: bold; /* 加粗主菜单文字 */
+            font-size: 18px;   /* 加大字体 */
+            line-height: 1.5;  /* 增加行高，避免文本重叠 */
+            transition: color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;  /* 鼠标悬停显示为手型 */
+        }
+
+        .menu-item > .toggle  {
+            text-decoration: none;
+            color: #181717;
+            padding: 10px 15px;
+            font-weight: bold; /* 加粗主菜单文字 */
+            font-size: 20px;   /* 加大字体 */
+            line-height: 1.5;  /* 增加行高，避免文本重叠 */
+            transition: color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;  /* 鼠标悬停显示为手型 */
+        }
+
+        .bcqm ul a:hover {
+            color: #1888b8;
+            transform: translateY(-2px);
+        }
+
+        /* 子菜单样式 */
+        .bcqm ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            list-style: none;
+            padding: 10px 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            min-width: auto;
+            max-width: 400px;
+            width: auto;
+            opacity: 0;
+            transform: scaleY(0.8);
+            transform-origin: top;
+            transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            white-space: nowrap;
+            border-radius: 12px; /* 添加圆角，使背景更柔和 */
+            background: linear-gradient(135deg, #fff0f7, #f1e1f1); /* 渐变背景 */
+            line-height: 1.4; /* 子菜单项设置适当行高 */
+        }
+
+        /* 子菜单项显示时的样式 */
+        .menu-item.active > .submenu {
+            display: block;
+            opacity: 1;
+            transform: scaleY(1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        /* 子子菜单位置调整 */
+        .menu-item .submenu .submenu {
+            top: 0;
+            left: 100%;
+        }
+
+        /* 子菜单文字样式 */
+        .submenu li a {
+            white-space: nowrap;
+            padding: 8px 15px;
+            text-decoration: none;
+            color: #9113a1;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            cursor: pointer; /* 鼠标悬停时显示为手型 */
+            border-radius: 8px; /* 子菜单项的圆角 */
+            margin: 4px 0; /* 增加项之间的间距 */
+            background: linear-gradient(45deg, #fff0f7, #f1e1f1); /* 子菜单项渐变背景 */
+            line-height: 1.6; /* 设置子菜单文字的行高 */
+        }
+
+        .submenu li a:hover {
+            background-color: #ccdede;
+            color: #1888b8;
+            border-radius: 8px;  /* 保持圆角 */
+        }
+
+        /* 子菜单标题样式 */
+        .submenu h4 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #9113a1;
+            margin-bottom: 12px;
+            line-height: 1.4; /* 增加子菜单标题的行高 */
+        }
+
+        .menu-item.active > .toggle {
+            background-color: #d7a3dd;
+            border-radius: 6px;
+            padding: 5px 10px;
+            color: #fff;
+        }
+
+        /* 改进特定子菜单背景 */
+        .submenu li a {
+            background: linear-gradient(135deg, #fff0f7, #f1e1f1); /* 添加渐变背景 */
+            border-radius: 8px; /* 让子菜单项有圆角 */
+            margin: 4px 0; /* 添加间距避免紧凑 */
+        }
+
+        .submenu li a:hover {
+            background-color: #ccdede;  /* 更改悬停时的背景 */
+            border-radius: 8px;  /* 保持圆角效果 */
+        }
+
+
+
+        /* NTUB英文標題 */
+        h1 {
+            font-family: Lobster; 
+            font-size: 36px; /* 設定基礎字體大小 */
+            font-weight: bold; /* 文字加粗 */
+            color: #54065e; /* 預設文字顏色 */
+            text-align: center; /* 文字居中 */
+            letter-spacing: 2px; /* 增加字母間距 */
+            border-radius: 10px; /* 圓角效果 */
+        }
+
+        h1 .large {
+            font-size: 70px; /* 放大字母 */
+            color: #9113a1; /* 改變字母顏色 */
+            font-weight: bold; /* 強調字母的加粗效果 */
+        }
+
+
+
+        
         h4 {
             color: #ce9460;
-            margin: 10px 0; /* 增加標題的上下間距 */
+            margin: 10px 0;
         }
         h3 {
             color: #ce8460;
         }
-        .bcqm {
-            display: flex;
-            justify-content: space-around; /* 項目均分填滿整個容器 */
-            background: #9113a1; /* 背景色可調 */
-            padding: 10px 0;
-        }
-        .bcqm ul {
-            list-style: none; /* 移除項目符號 */
-            margin: 0;
-            padding: 0;
-            display: flex; /* 將列表項目水平排列 */
-            gap: 20px; /* 增加選項間的間距 */
-            width: 100%; /* 設置寬度以填滿父容器 */
-            justify-content: space-evenly; /* 項目均勻分布 */
-        }
-        .bcqm ul li {
-            position: relative; /* 為子菜單定位 */
-        }
-        .bcqm ul a {
-            text-decoration: none; /* 移除底線 */
-            color: #333; /* 標題字體顏色 */
-            padding: 5px 10px;
-            transition: color 0.3s; /* 添加動畫效果 */
-        }
-        .bcqm ul a:hover {
-            color: #1888b8; /* 滑鼠懸停時的顏色 */
-        }
-        /* 子選單樣式 */
-        .bcqm ul li ul {
-            display: none; /* 隱藏子菜單 */
-            position: absolute;
-            top: 100%; /* 子選單定位到主選單下方 */
-            left: 0;
-            background: #ffffff;
-            list-style: none;
-            padding: 10px 15px; /* 子選單內邊距 */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 添加陰影 */
-            z-index: 10; /* 確保子選單層級較高 */
-            min-width: 200px; /* 子選單的最小寬度 */
-        }
-        .bcqm ul li:hover ul {
-            display: block; /* 滑鼠懸停時顯示子菜單 */
-        }
-        .bcqm ul li ul li {
-            margin: 0;
-            padding: 0;
-        }
-        .bcqm ul li ul a {
-            color: #1888b8;
-            padding: 5px 15px;
-            white-space: nowrap; /* 防止換行 */
-        }
-        .bcqm ul li ul a:hover {
-            background: #ccdede; /* 滑鼠懸停時的背景色 */
-            padding: 2px 20px; /* 減少上下左右的內邊距 */
-            border-radius: 4px; /* 添加圓角，讓背景更小巧 */  
-            transition: all 0.3s ease-in-out; /* 添加平滑效果 */
-            color: #1888b8; /* 滑鼠懸停時的文字顏色 */
-        }
+
+        
         .footer2 {
             background: #333;
             color: #fff;
@@ -539,9 +597,7 @@
             margin: 20px 0 50px 0;
         }
 
-        .bcqm ul li ul a {
-            font-size: 15px; /* 子菜单調整字體大小，例如 18px */
-        }
+        
         .xcxp p {
             font-size: 30px; /* 子菜单調整字體大小，例如 18px */
         }
@@ -602,98 +658,91 @@
 </head>
 
 <body>
-
-
+    
     <div class="bcqm">
         <ul>
-            <li class="menu-item"><a href="#" class="hightlight">教學單位</a>
+            <li class="menu-item"><span class="toggle">教學單位</span>
                 <ul class="submenu">
                     <h4>〔台北校區〕</h4>
-                    <li  class="menu-item"><a href="stars.html">管理學院</a>
+                    <li class="menu-item"><span class="toggle">管理學院</span>
                         <ul class="submenu">
-                            <li>資訊與決策科學研究所</li>
-                            <li>企業管理系</li>
-                            <li>資訊管理系</li>
+                            <li><a href="stars.html">資訊與決策科學研究所</a></li>
+                            <li><a href="enterprise.html">企業管理系</a></li>
+                            <li><a href="info_management.html">資訊管理系</a></li>
                         </ul>
                     </li>
-                    <li  class="menu-item"><a href="wzxy.html">財經學院</a>
+                    <li class="menu-item"><span class="toggle">財經學院</span>
                         <ul class="submenu">
-                            <li>財經學院博士班</li>
-                            <li>會計資訊系</li>
-                            <li>會計與資料科學科</li>
-                            <li>財務金融系</li>
-                            <li>財政稅務系</li>
+                            <li><a href="phd_finance.html">財經學院博士班</a></li>
+                            <li><a href="accounting_info.html">會計資訊系</a></li>
+                            <li><a href="data_science.html">會計與資料科學科</a></li>
+                            <li><a href="finance.html">財務金融系</a></li>
+                            <li><a href="taxation.html">財政稅務系</a></li>
                         </ul>
                     </li>
-                    <li  class="menu-item"><a href="zixp.html">國際行銷學院</a>
+                    <li class="menu-item"><span class="toggle">國際行銷學院</span>
                         <ul class="submenu">
-                            <li>貿易實務法律暨談判碩士學位學程</li>
-                            <li>國際商務系</li>
-                            <li>應用外語系</li>
+                            <li><a href="trade_law.html">貿易實務法律暨談判碩士學位學程</a></li>
+                            <li><a href="intl_business.html">國際商務系</a></li>
+                            <li><a href="applied_language.html">應用外語系</a></li>
                         </ul>
                     </li>
                     <hr>
                     <h4>〔桃園校區〕</h4>
-                    <li  class="menu-item"><a href="wzxy.html">創新設計與經營學院</a>
+                    <li class="menu-item"><span class="toggle">創新設計與經營學院</span>
                         <ul class="submenu">
-                            <li>創意設計與經營研究所</li>
-                            <li>商業設計管理系</li>
-                            <li>創意科技與產品設計系</li>
-                            <li>數位多媒體設計系</li>
+                            <li><a href="creative_research.html">創意設計與經營研究所</a></li>
+                            <li><a href="business_design.html">商業設計管理系</a></li>
+                            <li><a href="creative_tech.html">創意科技與產品設計系</a></li>
+                            <li><a href="digital_media.html">數位多媒體設計系</a></li>
                         </ul>
                     </li>
-                    
                 </ul>
             </li>
-
-
-            <li><a href="#" class="hightlight">行政單位</a>
-                <ul>
+    
+            <li class="menu-item"><span class="toggle">行政單位</span>
+                <ul class="submenu">
                     <h4>〔台北校區〕</h4>
-                    <li><a href="xcvf.html">校長室</a></li>
-                    <li><a href="wzxy.html">秘書室</a></li>
-                    <li><a href="wzxy.html">教務處</a></li>
-                    <li><a href="wzxy.html">推廣教育部</a></li>
-                    <li><a href="wzxy.html">研究發展處</a></li>
-                    <li><a href="wzxy.html">國際事務處</a></li>
-                    <li><a href="wzxy.html">學生事務處</a></li>
-                    <li><a href="wzxy.html">資訊與網絡中心</a></li>
-                    <li><a href="wzxy.html">商業智慧研究中心</a></li>
+                    <li><a href="president.html">校長室</a></li>
+                    <li><a href="secretary.html">秘書室</a></li>
+                    <li><a href="academic.html">教務處</a></li>
+                    <li><a href="education_extension.html">推廣教育部</a></li>
+                    <li><a href="research.html">研究發展處</a></li>
+                    <li><a href="intl_affairs.html">國際事務處</a></li>
+                    <li><a href="student_affairs.html">學生事務處</a></li>
+                    <li><a href="it_center.html">資訊與網絡中心</a></li>
+                    <li><a href="business_research.html">商業智慧研究中心</a></li>
                     <hr>
                     <h4>〔桃園校區〕</h4>
-                    <li><a href="xcvf.html">黃副校長室</a></li>
-                    <li><a href="wzxy.html">教務處</a></li>
-                    <li><a href="wzxy.html">推廣教育部</a></li>
-                    <li><a href="wzxy.html">學生事務處</a></li>
-                    <li><a href="wzxy.html">資訊與網絡中心</a></li>
-                    <li><a href="wzxy.html">創新育成中心</a></li>
-                    
+                    <li><a href="vp_office.html">黃副校長室</a></li>
+                    <li><a href="academic_taoyuan.html">教務處</a></li>
+                    <li><a href="education_extension_taoyuan.html">推廣教育部</a></li>
+                    <li><a href="student_affairs_taoyuan.html">學生事務處</a></li>
+                    <li><a href="it_center_taoyuan.html">資訊與網絡中心</a></li>
+                    <li><a href="innovation_center.html">創新育成中心</a></li>
                 </ul>
             </li>
-
-
-            <li><a href="#" class="hightlight">附設學校</a>
-                <ul>
+    
+            <li class="menu-item"><span class="toggle">附設學校</span>
+                <ul class="submenu">
                     <h4>〔台北校區〕</h4>
-                    <li><a href="stars.html">空中進修學院</a></li>
-                    <li><a href="wzxy.html">推廣教育</a></li>
-                    <li><a href="zixp.html">退除役官兵二年制</a></li>
+                    <li><a href="night_school.html">空中進修學院</a></li>
+                    <li><a href="education_extension.html">推廣教育</a></li>
+                    <li><a href="veteran_program.html">退除役官兵二年制</a></li>
                     <hr>
                     <h4>〔桃園校區〕</h4>
-                    <li><a href="wzxy.html">空中進修學院</a></li>
-                    <li><a href="wzxy.html">推廣教育</a></li>
+                    <li><a href="night_school_taoyuan.html">空中進修學院</a></li>
+                    <li><a href="education_extension_taoyuan.html">推廣教育</a></li>
                 </ul>
             </li>
-
-
-            <li><a href="#" class="hightlight">深耕計劃</a>
-                <ul>
-                    <h4>〔台北校區〕</h4>
-                    <li><a href="stars.html">回北商大</a></li>
-                    <li><a href="zixp.html">教學創新精進</a></li>
-                    <li><a href="wzxy.html">成果展示</a></li>
-                    <li><a href="zixp.html">產學合作</a></li>
-                    <li><a href="zixp.html">募款專區</a></li>
+    
+            <li class="menu-item"><span class="toggle">深耕計劃</span>
+                <ul class="submenu">
+                    <li><a href="back_to_campus.html">回北商大</a></li>
+                    <li><a href="teaching_innovation.html">教學創新精進</a></li>
+                    <li><a href="achievement.html">成果展示</a></li>
+                    <li><a href="industry_collab.html">產學合作</a></li>
+                    <li><a href="donation.html">募款專區</a></li>
                 </ul>
             </li>
 
@@ -705,11 +754,48 @@
 
         </ul>
     </div>
+    
+
+    <script>
+        // 點擊菜單顯示/隱藏子菜單
+        document.querySelectorAll('.menu-item > span, .menu-item > a').forEach(function (item) {
+            item.addEventListener('click', function (event) {
+                event.stopPropagation(); // 防止點擊事件冒泡
+
+                // 獲取當前的父節點
+                const parentMenuItem = this.parentNode;
+
+                // 切換當前菜單的顯示狀態
+                parentMenuItem.classList.toggle('active');
+
+                // 關閉同層級的其他子菜單
+                const siblingMenuItems = parentMenuItem.parentNode.querySelectorAll('.menu-item');
+                siblingMenuItems.forEach(function (sibling) {
+                    if (sibling !== parentMenuItem) {
+                        sibling.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // 點擊頁面其他地方關閉所有子菜單
+        document.addEventListener('click', function () {
+            document.querySelectorAll('.menu-item').forEach(function (menuItem) {
+                menuItem.classList.remove('active');
+            });
+        });
+
+    </script>
 
     <div class="logo">
         <img src="Image/ntublogo.png" alt="國立台北商業大學 logo" width="700">
-        <h2>國立台北商業大學</h2>
-        <h4>National Taipei University of Business</h4>
+        <h1>
+            <span class="large">N</span>ational 
+            <span class="large">T</span>aipei 
+            <span class="large">U</span>niversity of 
+            <span class="large">B</span>usiness
+          </h1>
+          
         <hr>
     </div>
 
