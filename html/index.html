@@ -65,7 +65,7 @@
        
 
         .event-board {
-            max-width: 1200px;
+            max-width:800px;
             margin: 40px auto;
             padding: 20px;
             background: white;
@@ -217,7 +217,7 @@
         }
 
         .content-section {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 40px auto;
             padding: 20px;
             background: white;
@@ -397,6 +397,53 @@
             z-index: 1000; /* 保证在最上层 */
             transition: transform 0.3s ease;
         }
+
+        .table-container {
+            max-width:800px;
+            margin: 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            background-color: white;
+        }
+
+        th {
+            background-color: #800080;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        td {
+            padding: 10px;
+            font-size: 14px;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f2fc;
+        }
+
+        tr:hover {
+            background-color: #f1e7f5;
+        }
+
+        .highlight {
+            color: #800080;
+            font-weight: bold;
+        }
+
+
+
+
+
 
 
         /* 菜单样式 */
@@ -729,8 +776,13 @@
                     <li><a href="donation.html">募款專區</a></li>
                 </ul>
             </li>
+
+            <!-- <li><a href="#about">關於北商</a></li>
+            <li><a href="login.html" >登入</a></li> -->
+
             <li><a href="#about" class="hightlight">關於北商</a></li>
             <li><a href="login.html" class="hightlight">登入</a></li>
+
         </ul>
     </div>
     
@@ -937,14 +989,14 @@
     <script>
         // 新聞數據
         const newsData = [
-            { title: "北商大107周年校慶 桃園校區熱鬧登場", date: "2024-12-17", image: "news1.jpg" },
-            { title: "2024全國社群大數據分析校園創新競賽", date: "2024-12-10", image: "news2.jpg" },
-            { title: "百年各校 北商大 科大商學院第一品牌", date: "2024-11-25", image: "news3.jpg" },
-            { title: "繼橫期海期模擬賽 北商大獲勝", date: "2024-11-22", image: "news4.jpg" },
-            { title: "北商大財稅系 獲租稅競賽全國冠軍", date: "2024-11-19", image: "news5.jpg" },
-            { title: "北商大創新設計成果 師生共創輝煌", date: "2024-11-07", image: "news6.jpg" },
-            { title: "新生研討會 開啟大學新旅程", date: "2024-10-15", image: "news7.jpg" },
-            { title: "國際學術合作簽約儀式", date: "2024-09-30", image: "news8.jpg" },
+            { title: "北商大107周年校慶 桃園校區熱鬧登場", date: "2024-12-17", image: "Image/news1.jpg" },
+            { title: "2024全國社群大數據分析校園創新競賽", date: "2024-12-10", image: "Image/news2.jpg" },
+            { title: "百年各校 北商大 科大商學院第一品牌", date: "2024-11-25", image: "Image/news3.jpg" },
+            { title: "繼橫期海期模擬賽 北商大獲勝", date: "2024-11-22", image: "Image/news4.jpg" },
+            { title: "北商大財稅系 獲租稅競賽全國冠軍", date: "2024-11-19", image: "Image/news5.jpg" },
+            { title: "北商大創新設計成果 師生共創輝煌", date: "2024-11-07", image: "Image/news6.jpg" },
+            { title: "新生研討會 開啟大學新旅程", date: "2024-10-15", image: "Image/news7.jpg" },
+            { title: "國際學術合作簽約儀式", date: "2024-09-30", image: "Image/news8.jpg" },
         ];
 
         // 每頁顯示的新聞數量
@@ -1049,6 +1101,74 @@
     
 
         <hr>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>單位名稱</th>
+                        <th>電話</th>
+                        <th>地址</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>校安中心</td>
+                        <td>02-23212219</td>
+                        <td>五育樓1F</td>
+                    </tr>
+                    <tr>
+                        <td>台北校園警衛室</td>
+                        <td>02-23226119</td>
+                        <td>濟南路正門口</td>
+                    </tr>
+                    <tr>
+                        <td>中和園通雅茵宿舍</td>
+                        <td>02-29423363</td>
+                        <td>新北市中和區工專路26-38號</td>
+                    </tr>
+                    <tr>
+                        <td>台北市忠孝東路派出所</td>
+                        <td>02-23218656</td>
+                        <td>台北市中正區幸福里忠孝東路2段10號</td>
+                    </tr>
+                    <tr>
+                        <td>台北市警察局中正第一分局</td>
+                        <td>02-23831940</td>
+                        <td>台北市中正區公園路15號</td>
+                    </tr>
+                    <tr>
+                        <td>台北市婦幼警察隊</td>
+                        <td>02-27590827</td>
+                        <td>台北市信義路5段180號</td>
+                    </tr>
+                    <tr>
+                        <td>台北市少年警察隊</td>
+                        <td>02-23467585</td>
+                        <td>台北市信義路5段180號</td>
+                    </tr>
+                    <tr>
+                        <td>台大醫院東址大樓</td>
+                        <td>02-23123456 </td>
+                        <td>台北市中山南路7號</td>
+                    </tr>
+                    <tr>
+                        <td>台大醫院西址大樓</td>
+                        <td>02-23123456</td>
+                        <td>台北市常德街1號</td>
+                    </tr>
+                    <tr>
+                        <td>台北市立聯合醫院仁愛院區</td>
+                        <td>02-27093600</td>
+                        <td>台北市大安區仁愛路四段10號</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+
+
 
         <div class="content-section">
             <!-- 地圖區塊 -->
