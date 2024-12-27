@@ -29,11 +29,12 @@
 
         .login-container img {
             width: 80px;
-            margin-bottom: 20px;
+            margin-bottom: 0px;
         }
 
         .login-container h2 {
             color: #6a0dad;
+            margin-top: 0px;
             margin-bottom: 20px;
         }
 
@@ -82,9 +83,9 @@
 
 <body>
     <div class="login-container">
-        <img src="https://via.placeholder.com/80" alt="學校Logo">
+        <img src="Image/ntubLOGO-GIF.gif" alt="學校Logo">
         <h2>學校登入系統</h2>
-        <form action="dashboard.html" method="post">
+        <form action="student_info.html" method="get">
             <select name="school" required>
                 <option value="" disabled selected>選擇身份</option>
                 <option value="student">學生</option>
@@ -95,6 +96,7 @@
             <input type="password" name="password" placeholder="輸入密碼" required>
             <button type="submit">登入</button>
         </form>
+        
         <a href="#">忘記密碼？</a>
     </div>
 </body>

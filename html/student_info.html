@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>學生資訊系統</title>
+
+    <link rel="icon" sizes="512x512" type="image/png" href="Image/ntubl.png">
+
+    <style>
+        /* 共用樣式 */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Arial", sans-serif;
+            background: linear-gradient(90deg, #bd029e, #77019f);
+            color: #fff;
+            text-align: center;
+        }
+
+        h1 {
+            background: linear-gradient(90deg, #bd029e, #7a00a3);
+            color: #fff;
+            padding: 20px 0;
+            font-size: 2.5em;
+            margin: 0;
+            border-bottom: 5px solid #540082;
+        }
+
+        .content {
+            display: none;
+            padding: 20px;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        /* 學生證頁面樣式 */
+        img {
+            margin: 20px auto;
+            display: block;
+            width: 60%;
+            border: 5px solid #ffffff;
+            border-radius: 15px;
+            box-shadow: 0px 10px 30px rgb(0, 0, 0);
+        }
+
+        footer {
+            background: #7a00a3;
+            color: #fff;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            font-size: 0.9em;
+        }
+
+        /* 課表頁面樣式 */
+        .schedule-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .schedule-header {
+            margin-bottom: 20px;
+            font-size: 20px;
+            color: #FF7F00;  /* 強調標題顏色 */
+        }
+
+        table {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            text-align: center;
+            table-layout: fixed;
+            background-color: #f8f8f8; /* 背景顏色 */
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 15px; /* 增加內邊距以提升可讀性 */
+            font-size: 1.1em; /* 增加字型大小 */
+        }
+
+        th {
+            background-color: #f9680e; /* 淺灰色背景讓表頭更清晰 */
+            color: #333; /* 深色文字提高可讀性 */
+        }
+
+        td {
+            background-color: #fff; /* 白色背景使文字清晰 */
+            color: #333; /* 深色文字提高可讀性 */
+        }
+
+        /* 強調有課程的欄位 */
+        .highlight {
+            color: #003366; /* 深藍色文字 */
+            background-color: #eaf7ff; /* 輕微藍色背景 */
+            cursor: pointer;
+            text-decoration: underline;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* 增加陰影效果 */
+        }
+
+        .time-column {
+            width: 200px;
+            background-color: #e1b578;
+            color: #003366; /* 深色文字 */
+            font-weight: bold; /* 加粗文字 */
+        }
+
+        /* 增強按鈕樣式 */
+        .tab-button {
+            background-color: #540082;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            border-radius: 5px;
+        }
+
+        .tab-button.active {
+            background-color: #FF7F00;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* 增加陰影效果 */
+        }
+
+        footer {
+            background: #7a00a3;
+            color: #fff;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            font-size: 0.9em;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>國立台北商業大學</h1>
+    <h4>學生資訊系統</h4>
+
+    <!-- 切換按鈕 -->
+    <div class="tabs">
+        <button class="tab-button active" onclick="showContent('student-card')">學生證</button>
+        <button class="tab-button" onclick="showContent('schedule')">課表</button>
+    </div>
+
+    <!-- 學生證內容 -->
+    <div id="student-card" class="content active">
+        <img src="Image/1.png" alt="學生證圖片1">
+        <img src="Image/2.png" alt="學生證圖片2">
+        <img src="Image/3.png" alt="學生證圖片3">
+    </div>
+
+    <!-- 課表內容 -->
+    <div id="schedule" class="content">
+        <div class="schedule-container">
+            <div class="schedule-header">
+                <span>113 學年度第</span>
+                <select>
+                    <option>第一學期</option>
+                    <option>第二學期</option>
+                </select>
+                <span>學期 學生 李仕傑 個人課表</span>
+                <button>匯出 Excel 檔</button>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>節次</th>
+                        <th>一</th>
+                        <th>二</th>
+                        <th>三</th>
+                        <th>四</th>
+                        <th>五</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="time-column">第一節<br>08:10~09:00</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="time-column">第二節<br>09:10~10:00</td>
+                        <td></td>
+                        <td class="highlight">資訊網路<br>林志宗<br>電708(承曦樓)</td>
+                        <td class="highlight">數位內容概論<br>蕭培元<br>資401</td>
+                        <td class="highlight">資料庫管理<br>李文毅<br>電703(承曦樓)</td>
+                        <td class="highlight">資料結構<br>李家生<br>藝410</td>
+                    </tr>
+                    <tr>
+                        <td class="time-column">第三節<br>10:10~11:00</td>
+                        <td class="highlight">羽球(上)<br>孫彩卿<br>待排教室</td>
+                        <td class="highlight">資訊網路<br>林志宗<br>電708(承曦樓)</td>
+                        <td class="highlight">數位內容概論<br>蕭培元<br>資401</td>
+                        <td class="highlight">資料庫管理<br>李文毅<br>電703(承曦樓)</td>
+                        <td class="highlight">資料結構<br>李家生<br>藝410</td>
+                    </tr>
+                    <tr>
+                        <td class="time-column">第四節<br>11:10~12:00</td>
+                        <td class="highlight">羽球(上)<br>孫彩卿<br>待排教室</td>
+                        <td class="highlight">資訊網路<br>林志宗<br>電708(承曦樓)</td>
+                        <td class="highlight">數位內容概論<br>蕭培元<br>資401</td>
+                        <td class="highlight">資料庫管理<br>李文毅<br>電703(承曦樓)</td>
+                        <td class="highlight">資料結構<br>李家生<br>藝410</td>
+                        
+                        
+                    </tr>
+                    <tr>
+                        <td class="time-column">第五節<br>13:30~14:20</td>
+                        <td class="highlight">網站應用程式設計<br>蔡文隆P<br>資401</td>
+                        <td class="highlight">讀小說學英文<br>楊鎮魁<br>承506</td>
+                        <td></td>
+                        <td class="highlight">哲學與人生<br>高育和<br>藝409</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="time-column">第六節<br>14:30~15:20</td>
+                        <td class="highlight">網站應用程式設計<br>蔡文隆P<br>資401</td>
+                        <td class="highlight">讀小說學英文<br>楊鎮魁<br>承506</td>
+                        <td></td>
+                        <td class="highlight">哲學與人生<br>高育和<br>藝409</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="time-column">第七節<br>15:25~16:15</td>
+                        <td class="highlight">網站應用程式設計<br>蔡文隆P<br>資401</td>
+                        <td class="highlight">財務管理<br>賴蓉禾<br>電606(承曦樓)</td>
+                        <td class="highlight">英文(三)<br>彭如玉<br>承405</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="time-column">第八節<br>16:20~17:10</td>
+                        <td></td>
+                        <td class="highlight">財務管理<br>賴蓉禾<br>電606(承曦樓)</td>
+                        <td class="highlight">英文(三)<br>彭如玉<br>承405</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="time-column">第九節<br>17:15~18:05</td>
+                        <td></td>
+                        <td class="highlight">財務管理<br>賴蓉禾<br>電606(承曦樓)</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 國立台北商業大學. All Rights Reserved.
+    </footer>
+
+    <script>
+        function showContent(id) {
+            // 隱藏所有內容
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // 移除所有按鈕的 active 樣式
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+
+            // 顯示對應內容並啟用按鈕
+            document.getElementById(id).classList.add('active');
+            document.querySelector(`.tab-button[onclick="showContent('${id}')"]`).classList.add('active');
+        }
+    </script>
+</body>
+</html>
