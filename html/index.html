@@ -16,7 +16,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #faf8fa; /* 輕灰色背景提升對比 */
+            background-color: #f3e0f3; /* 輕灰色背景提升對比 */
         }
         /* 全局區塊樣式 */
         section {
@@ -35,149 +35,147 @@
         }
 
 
-
         
-        /* 菜单样式 */
+
+        /* 菜单容器样式 */
         .bcqm {
-            display: flex;
-            justify-content: space-around;
-            background: #9113a1;
-            padding: 10px 0;
+            display: flex; /* 设置为弹性布局 */
+            justify-content: space-around; /* 子元素均匀分布并留有空隙 */
+            background: #9113a1; /* 背景颜色 */
+            padding: 10px 0; /* 上下内边距 */
         }
 
+        /* 菜单列表样式 */
         .bcqm ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            gap: 20px;
-            width: 100%;
-            justify-content: space-evenly;
+            list-style: none; /* 移除默认列表样式 */
+            margin: 0; /* 去除外边距 */
+            padding: 0; /* 去除内边距 */
+            display: flex; /* 设置为弹性布局 */
+            gap: 20px; /* 项目之间的间距 */
+            width: 100%; /* 撑满父容器宽度 */
+            justify-content: space-evenly; /* 项目间隔均匀分布 */
         }
 
+        /* 列表项样式 */
         .bcqm ul li {
-            position: relative;
+            position: relative; /* 使子菜单定位以当前列表项为参考点 */
         }
 
-        .bcqm ul a  {
-            text-decoration: none;
-            color: #170b73;
-            padding: 10px 15px;
-            font-weight: bold; /* 加粗主菜单文字 */
-            font-size: 18px;   /* 加大字体 */
-            line-height: 1.5;  /* 增加行高，避免文本重叠 */
-            transition: color 0.3s ease, transform 0.3s ease;
-            cursor: pointer;  /* 鼠标悬停显示为手型 */
+        /* 主菜单链接样式 */
+        .bcqm ul a {
+            text-decoration: none; /* 移除链接下划线 */
+            color: #170b73; /* 链接文字颜色 */
+            padding: 10px 15px; /* 链接文字内边距 */
+            font-weight: bold; /* 加粗文字 */
+            font-size: 18px; /* 设置字体大小 */
+            line-height: 1.5; /* 增加行高以防文字重叠 */
+            transition: color 0.3s ease, transform 0.3s ease; /* 添加过渡效果 */
+            cursor: pointer; /* 鼠标悬停变为手型 */
         }
 
-        .menu-item > .toggle  {
-            text-decoration: none;
-            color: #181717;
-            padding: 10px 15px;
-            font-weight: bold; /* 加粗主菜单文字 */
-            font-size: 20px;   /* 加大字体 */
-            line-height: 1.5;  /* 增加行高，避免文本重叠 */
-            transition: color 0.3s ease, transform 0.3s ease;
-            cursor: pointer;  /* 鼠标悬停显示为手型 */
+        /* 特定主菜单项（.toggle）样式 */
+        .menu-item > .toggle {
+            text-decoration: none; /* 移除下划线 */
+            color: #181718; /* 文字颜色 */
+            padding: 10px 15px; /* 内边距 */
+            font-weight: bold; /* 加粗文字 */
+            font-size: 20px; /* 增大字体 */
+            line-height: 1.5; /* 设置行高 */
+            transition: color 0.3s ease, transform 0.3s ease; /* 添加过渡效果 */
+            cursor: pointer; /* 鼠标变为手型 */
         }
 
+        /* 主菜单悬停效果 */
         .bcqm ul a:hover {
-            color: #1888b8;
-            transform: translateY(-2px);
+            color: #1888b8; /* 悬停时文字颜色 */
+            transform: translateY(-2px); /* 上移效果 */
         }
 
-        /* 子菜单样式 */
+        /* 子菜单容器样式 */
         .bcqm ul li ul {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: #fff;
-            list-style: none;
-            padding: 10px 15px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            z-index: 10;
-            min-width: auto;
-            max-width: 400px;
-            width: auto;
-            opacity: 0;
-            transform: scaleY(0.8);
-            transform-origin: top;
-            transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-            white-space: nowrap;
-            border-radius: 12px; /* 添加圆角，使背景更柔和 */
-            background: linear-gradient(135deg, #fff0f7, #f1e1f1); /* 渐变背景 */
-            line-height: 1.4; /* 子菜单项设置适当行高 */
+            display: none; /* 默认隐藏 */
+            position: absolute; /* 绝对定位以便定位到父项下 */
+            top: 100%; /* 子菜单显示在父项下方 */
+            left: 0; /* 左对齐 */
+            background: #fff; /* 背景色 */
+            list-style: none; /* 移除子菜单默认列表样式 */
+            padding: 10px 15px; /* 子菜单内边距 */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+            z-index: 10; /* 置于其他元素上方 */
+            min-width: auto; /* 最小宽度自适应 */
+            max-width: 400px; /* 设置最大宽度 */
+            width: auto; /* 宽度自适应内容 */
+            opacity: 0; /* 初始透明度为0 */
+            transform: scaleY(0.8); /* 初始缩放 */
+            transform-origin: top; /* 动画从顶部开始 */
+            transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* 过渡效果 */
+            white-space: nowrap; /* 避免文字换行 */
+            border-radius: 12px; /* 圆角样式 */
+            background: #f1e1f1;
+            line-height: 1.4; /* 增加行高 */
+        }
+        .bcqm ul li ul li ul {
+            background:  #fff0f7;
         }
 
-        /* 子菜单项显示时的样式 */
+        /* 显示子菜单时的样式 */
         .menu-item.active > .submenu {
-            display: block;
-            opacity: 1;
-            transform: scaleY(1);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            display: block; /* 显示子菜单 */
+            opacity: 1; /* 恢复透明度 */
+            transform: scaleY(1); /* 恢复缩放 */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* 阴影增强 */
         }
 
         /* 子子菜单位置调整 */
         .menu-item .submenu .submenu {
-            top: 0;
-            left: 100%;
+            top: 0; /* 对齐父菜单项顶部 */
+            left: 100%; /* 子子菜单在右侧 */
         }
 
-        /* 子菜单文字样式 */
+        /* 子菜单项样式 */
         .submenu li a {
-            white-space: nowrap;
-            padding: 8px 15px;
-            text-decoration: none;
-            color: #9113a1;
-            font-size: 16px;
-            font-weight: 500;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            cursor: pointer; /* 鼠标悬停时显示为手型 */
-            border-radius: 8px; /* 子菜单项的圆角 */
-            margin: 4px 0; /* 增加项之间的间距 */
-            background: linear-gradient(45deg, #fff0f7, #f1e1f1); /* 子菜单项渐变背景 */
-            line-height: 1.6; /* 设置子菜单文字的行高 */
+            white-space: nowrap; /* 避免文字换行 */
+            padding: 8px 15px; /* 子菜单项内边距 */
+            text-decoration: none; /* 移除链接下划线 */
+            color: #9113a1; /* 子菜单文字颜色 */
+            font-size: 16px; /* 字体大小 */
+            font-weight: 500; /* 字体粗细 */
+            transition: background-color 0.3s ease, color 0.3s ease; /* 添加过渡效果 */
+            cursor: pointer; /* 鼠标悬停变为手型 */
+            border-radius: 8px; /* 子菜单项圆角 */
+            margin: 4px 0; /* 项目间距 */
+            line-height: 1.6; /* 行高 */
         }
 
+        /* 子菜单项悬停样式 */
         .submenu li a:hover {
-            background-color: #ccdede;
-            color: #1888b8;
-            border-radius: 8px;  /* 保持圆角 */
+            background-color: #ccdede; /* 悬停时背景色 */
+            color: #1888b8; /* 悬停时文字颜色 */
+            border-radius: 8px; /* 保持圆角 */
         }
 
         /* 子菜单标题样式 */
         .submenu h4 {
-            font-size: 18px;
-            font-weight: bold;
-            color: #9113a1;
-            margin-bottom: 12px;
-            line-height: 1.4; /* 增加子菜单标题的行高 */
+            font-size: 18px; /* 标题字体大小 */
+            font-weight: bold; /* 加粗标题文字 */
+            color: #9113a1; /* 标题文字颜色 */
+            margin-bottom: 12px; /* 标题与子菜单项间距 */
+            line-height: 1.4; /* 增加行高 */
         }
 
+        /* 激活状态下的特定主菜单项样式 */
         .menu-item.active > .toggle {
-            background-color: #d7a3dd;
-            border-radius: 6px;
-            padding: 5px 10px;
-            color: #fff;
+            background-color: #d7a3dd; /* 背景颜色 */
+            border-radius: 6px; /* 添加圆角 */
+            padding: 5px 10px; /* 内边距 */
+            color: #fff; /* 文字颜色 */
         }
-
-        /* 改进特定子菜单背景 */
-        .submenu li a {
-            background: linear-gradient(135deg, #fff0f7, #f1e1f1); /* 添加渐变背景 */
-            border-radius: 8px; /* 让子菜单项有圆角 */
-            margin: 4px 0; /* 添加间距避免紧凑 */
-        }
-
-        .submenu li a:hover {
-            background-color: #ccdede;  /* 更改悬停时的背景 */
-            border-radius: 8px;  /* 保持圆角效果 */
-        }
+                
 
         /* 國立台北商業大學標題圖片 */
         .logo {
             text-align: center;
-            margin: 30px 0 0px 0;
+            margin: 10px 0 0px 0;
         }
 
         
@@ -186,17 +184,11 @@
             top: 10px; /* 控制距离顶部的距离 */
             left: 10px; /* 控制距离左边的距离 */
             font-size: 16px; /* 字体大小 */
+            top: 48px; /* 第一行文字距离顶部的距离 */
             margin: 5px 0; /* 增加上下间距避免重叠 */
             color: rgba(102, 102, 102, 0.8); /* 调整浅灰色透明度 */
         }
         
-        .att p:nth-child(1) {
-            top: 48px; /* 第一行文字距离顶部的距离 */
-        }
-        
-        .att p:nth-child(2) {
-            top: 68px; /* 第二行文字距离顶部的距离，可以根据需要调整 */
-        }
         
         
 
@@ -212,7 +204,7 @@
             overflow: hidden; /* 防止超出容器 */
             max-width: 100%; /* 防止超出窗口 */
             margin: 0 auto; /* 居中 */
-            padding: 10px; /* 增加顶部和底部的内边距 */
+            padding: 0px 0 10px 0; /* 增加顶部和底部的内边距 */
         }
 
         /* 大字体部分 */
@@ -231,10 +223,10 @@
         /* 輪播區塊樣式 */
         .carousel {
             position: relative;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 20px auto;
             overflow: hidden;
-            border-radius: 10px;
+            border-radius: 20px;
             background: linear-gradient(135deg, #ffffff, #e6e6ff);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
@@ -275,7 +267,7 @@
         
         /* 活動公告樣式 */
         .event-board {
-            max-width:1000px;
+            max-width:1200px;
             margin: 40px auto;
             padding: 20px;
             background: #f5f7ff; /* 輕藍背景區分活動區塊 */
@@ -359,12 +351,21 @@
 
 
         /* 新聞網格佈局 */
+        .news-container {
+            max-width:1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f5f7ff; /* 輕藍背景區分活動區塊 */
+            border: 2px solid #d0d8ff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
         .news-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr); /* 默认全屏显示3个网格 */
             gap: 30px;
             margin: 20px auto; /* 增加外邊距，讓網格不緊貼頁面邊 */
-            max-width: 1200px; /* 限制最大寬度，讓內容更居中 */
             padding: 0 20px; /* 增加內邊距，讓網格更美觀 */
             box-sizing: border-box; /* 確保內邊距計入總寬度 */
         }
@@ -404,9 +405,9 @@
             right: 0;
             background: rgba(0, 0, 0, 0.6);
             color: white;
-            padding: 10px;
+            padding: 0px;
             font-size: 14px;
-            transform: translateY(10px); /* 下移透明背景 */
+            transform: translateY(0px); /* 下移透明背景 */
             border-radius: 0 0 10px 10px;
         }
 
@@ -451,29 +452,16 @@
             cursor: not-allowed;
         }
 
-        
-
-        
 
                 
         /* 北商校区图片展示容器 */
         .campus-container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 10px;
-            font-family: Arial, sans-serif;
-            color: #333;
-            background: #f9f9f9;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        /* 标题样式 */
-        .campus-section h3 {
-            text-align: center;
-            color: #5a67d8;
-            margin-bottom: 20px;
-            font-size: 24px;
+            max-width:1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f5f7ff; /* 輕藍背景區分活動區塊 */
+            border: 2px solid #d0d8ff;
+            border-radius: 12px;
         }
 
         /* 图片廊 */
@@ -502,13 +490,13 @@
             display: block;
             font-size: 18px;
             margin-bottom: 8px;
-            color: #333;
+            color: #ae65b7;
         }
 
         /* 图片样式 */
         .campus-item img {
             width: 100%;
-            height: auto;
+            height: 100%;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
@@ -530,7 +518,7 @@
 
 
 
-            /* 校训整体容器 */
+        /* 校训整体容器 */
         .xcxp {
             max-width: 600px;
             margin: 0 auto; /* 移除上下外边距 */
@@ -540,11 +528,12 @@
         }
 
         .xcxp-bg {
-            background-color: #f3e5f5; /* 浅紫色背景 */
-            max-width: 80%;
-            margin: 0 auto; /* 背景居中 */
-            padding: 10px; /* 内边距 */
-            border-radius: 20px; /* 圆角效果 */
+            max-width:1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f5f7ff; /* 輕藍背景區分活動區塊 */
+            border: 2px solid #d0d8ff;
+            border-radius: 12px;
         }
 
         /* 标题样式 */
@@ -604,6 +593,48 @@
             }
         }
 
+        /* 单位信息表格 */
+        .table-container {
+            max-width:1220px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            background-color: white;
+        }
+
+        th {
+            background-color: #800080;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        td {
+            padding: 10px;
+            font-size: 14px;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f2fc;
+        }
+
+        tr:hover {
+            background-color: #f1e7f5;
+        }
+
+        .highlight {
+            color: #800080;
+            font-weight: bold;
+        }
 
 
         /* 地图和校歌视频整体容器 */
@@ -655,8 +686,13 @@
         }
 
 
-
-
+         /* 关于北商字体 */
+         .about p {    
+            margin-left: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #ce8460;
+        }
 
 
 
@@ -735,11 +771,10 @@
         
         .bt_text2 h1 .line {
             display: inline-block;
-            width: 100%; /* 确保每行宽度相同 */
-            min-width: 150px; /* 可以设置最小宽度，避免宽度过小 */
+            width:1 ; /* 确保每行宽度相同 */
+            min-width: 1px; /* 可以设置最小宽度，避免宽度过小 */
             text-align: center; /* 对齐文字 */
         }
-        
         
         
         .links-section h3 {
@@ -804,57 +839,9 @@
             transition: transform 0.3s ease;
         }
 
-        .table-container {
-            max-width:800px;
-            margin: 0 auto;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        .line {
+            color:#2ecdf9
         }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-            background-color: white;
-        }
-
-        th {
-            background-color: #800080;
-            color: white;
-            padding: 10px;
-            font-size: 16px;
-        }
-
-        td {
-            padding: 10px;
-            font-size: 14px;
-            color: #333;
-            border-bottom: 1px solid #ddd;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f9f2fc;
-        }
-
-        tr:hover {
-            background-color: #f1e7f5;
-        }
-
-        .highlight {
-            color: #800080;
-            font-weight: bold;
-        }
-
-
-        /* 关于北商字体 */
-        h3 {    
-            margin-left: 20px;
-            color: #ce8460;
-        }
-
-
-
 
         
     </style>
@@ -954,7 +941,6 @@
 
         </ul>
     </div>
-    
 
     <script>
         // 點擊菜單顯示/隱藏子菜單
@@ -986,12 +972,11 @@
         });
 
     </script>
-
-    <div class="att">
-        <p>註：此網站非北商官網</p>
-        <p>成員：李仕傑——架構, 許家全——css, 侯雨利——簡報</p>
-    </div>
     
+    <div class="att">
+        <p>註：此網站非北商官網&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp開發成員：李仕傑38——架構, 許家全39——css, 侯雨利34——簡報</p>
+    </div>
+
     <div class="logo">
         <img src="Image/ntublogo.png" alt="國立台北商業大學 logo" width="700">
         <h1>
@@ -1166,12 +1151,12 @@
             { title: "北商大107周年校慶 桃園校區熱鬧登場", date: "2024-12-17", image: "Image/news1.jpg" },
             { title: "2024全國社群大數據分析校園創新競賽", date: "2024-12-10", image: "Image/news2.jpg" },
             { title: "百年各校 北商大 科大商學院第一品牌", date: "2024-11-25", image: "Image/news3.jpg" },
-            { title: "繼橫期海期模擬賽 北商大獲勝", date: "2024-11-22", image: "Image/news4.jpg" },
+            { title: "2024 扶創盃創業創新競賽北商大團隊榮獲亞軍", date: "2024-011-1", image: "Image/news9.jpg" },
             { title: "北商大財稅系 獲租稅競賽全國冠軍", date: "2024-11-19", image: "Image/news5.jpg" },
             { title: "北商大創新設計成果 師生共創輝煌", date: "2024-11-07", image: "Image/news6.jpg" },
             { title: "新生研討會 開啟大學新旅程", date: "2024-10-15", image: "Image/news7.jpg" },
             { title: "國際學術合作簽約儀式", date: "2024-09-30", image: "Image/news8.jpg" },
-            { title: "2024 扶創盃創業創新競賽北商大團隊榮獲亞軍", date: "2024-011-1", image: "Image/news9.jpg" },
+            { title: "繼橫期海期模擬賽 北商大獲勝", date: "2024-11-22", image: "Image/news4.jpg" },
         ];
 
         // 每頁顯示的新聞數量
@@ -1235,7 +1220,7 @@
 
     <div class="campus-container">
         <div class="campus-section">
-            <h3>《北商台北校區》</h3>
+            <h2>《北商台北校區》</h2>
             <div class="campus-gallery">
                 <div class="campus-item">
                     <b>北商校園</b>
@@ -1266,7 +1251,7 @@
         </div>
     
         <div class="campus-section">
-            <h3>《北商桃園校區》</h3>
+            <h2>《北商桃園校區》</h2>
             <div class="campus-gallery">
                 <div class="campus-item">
                     <b>北商校園</b>
@@ -1318,7 +1303,6 @@
     
     
 
-    <hr>
 
     <div class="table-container">
         <table>
@@ -1391,7 +1375,7 @@
         <div class="content-section">
             <!-- 地圖區塊 -->
             <div class="map-section">
-                <h3>《北商地圖》</h3>
+                <h2>《北商地圖》</h2>
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.754630222151!2d121.52289487537678!3d25.04239977781091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a970a11a84ad%3A0x58e05f2528812097!2z5ZyL56uL6Ie65YyX5ZWG5qWt5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1730685843718!5m2!1szh-TW!2stw"
                     allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -1399,7 +1383,7 @@
         
             <!-- 校歌區塊 -->
             <div class="song-section">
-                <h3>《北商校歌》</h3>
+                <h2>《北商校歌》</h2>
                 <iframe src="https://www.youtube.com/embed/feEprpg5EE4" title="國立臺北商業大學｜校歌" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -1410,16 +1394,22 @@
 
 
 
-    <div id="about">
-        <h3>《關於北商》</h3>
+    <div class=about>
+        <p>《關於北商》</p>
         <ol>
             <dt><img src="Image/mk.png" width="30">本校創立於日治時期大正6年（1917年），原名「臺灣總督府立商業學校」。</dt>
-            <dt><img src="Image/mk.png" width="30">大正10年（1921年），由臺北州接辦，改稱「臺北州立商業學校」。</dt>
-            <dt><img src="Image/mk.png" width="30">大正11年（1922年），改稱「州立臺北商業學校」，並增設夜間講習所，旋擴大為「州立臺北第二商業學校」。</dt>
-            <dt><img src="Image/mk.png"
-                    width="30">1945年，第二次世界大戰結束，國民政府接收上述兩校，定名為「臺灣省立臺北第一商業學校」、「臺灣省立臺北第二商業學校」，仍分日、夜間上課，並以每年12月24日為校慶日。</dt>
-            <dt><img src="Image/mk.png" width="30">民國35年（1946年），兩校合併定名為「臺灣省立臺北商業學校」，簡稱「北商」。</dt>
-            <dt><img src="Image/mk.png" width="30">本校103年（2014年）8月1日，奉准改名為「國立臺北商業大學」。</dt>
+            <dt><img src="Image/mk.png" width="30">大正10年（1921年），改稱「臺北州立商業學校」。</dt>
+            <dt><img src="Image/mk.png" width="30">民國34年（1945年），二戰結束，國民政府接收兩校，定名為「臺灣省立臺北第一商業學校」與「臺灣省立臺北第二商業學校」。</dt>
+            <dt><img src="Image/mk.png" width="30">民國35年（1946年），兩校合併為「臺灣省立臺北商業學校」，簡稱「北商」。</dt>
+            <dt><img src="Image/mk.png" width="30">民國56年（1967年），更名為「臺北市立高級商業職業學校」。</dt>
+            <dt><img src="Image/mk.png" width="30">民國57年（1968年），改制為「臺北市立商業專科學校」，增設專業科系。</dt>
+            <dt><img src="Image/mk.png" width="30">民國71年（1982年），改隸中央，更名為「國立臺北商業專科學校」。</dt>
+            <dt><img src="Image/mk.png" width="30">民國90年（2001年），改制為「國立臺北商業技術學院」。</dt>
+            <dt><img src="Image/mk.png" width="30">民國94年（2005年），設立財務金融研究所，開始招收碩士研究生。</dt>
+            <dt><img src="Image/mk.png" width="30">103年（2014年）8月1日，奉准改名為「國立臺北商業大學」。</dt>
+            <dt><img src="Image/mk.png" width="30">108年（2019年），增設財經學院博士班。</dt>
+            <dt><img src="Image/mk.png" width="30">111年（2022年），由任立中博士接任校長。</dt>
+
         </ol>
     </div>
     <div class="footer">
